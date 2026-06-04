@@ -1,70 +1,44 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+React 后台管理系统
+基于 React + React-Router-Dom 开发的轻量化后台管理项目，页面自适应 PC / 平板 / 手机，包含登录鉴权、数据看板、用户管理、商品管理模块，前端数据本地存储，开箱即用。
+📦 技术栈
+框架：React 18
+路由：react-router-dom v6
+样式：原生 CSS（自适应响应式布局）
+本地存储：localStorage（登录状态持久化）
+📁 项目目录结构
+plaintext
+src
+├── pages
+│   ├── Login.js      # 系统登录页
+│   ├── Layout.js     # 全局布局(侧边栏+顶部导航+路由插槽)
+│   ├── Home.js       # 首页数据看板
+│   ├── User.js       # 用户管理列表
+│   └── Goods.js      # 商品管理列表
+├── App.js            # 路由总配置
+├── index.js          # 项目入口、路由根包裹
+└── App.css           # 全局样式、响应式样式
+🚀 项目启动步骤
+安装依赖
+bash
+运行
+npm install react-router-dom
+启动项目
+bash
+运行
+npm start
+访问地址：http://localhost:3000
+✨ 项目功能说明
+登录鉴权
+登录后存入本地 token，未登录访问任何管理页面自动跳转登录页
+顶部退出按钮，清除登录状态并跳转登录页
+侧边栏导航
+菜单：数据看板 / 用户管理 / 商品管理，点击路由切换页面
+移动端自动上下排版，PC 端左右布局，全屏幕自适应
+数据看板 (首页)
+4 组统计卡片：用户总数、商品总数、订单总数、今日营收
+用户管理
+用户信息表格展示：ID / 姓名 / 手机号 / 账号状态
+商品管理
+商品信息表格展示：ID / 商品名称 / 售价 / 库存
+💾 本地存储说明
+adminToken：登录凭证，用于页面权限拦截，退出登录自动清除

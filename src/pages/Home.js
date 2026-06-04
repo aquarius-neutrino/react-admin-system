@@ -1,25 +1,27 @@
+import { useEffect, useRef } from 'react'
+import * as echarts from 'echarts'
+
 export default function Home() {
+  const chartRef = useRef(null)
+
+  useEffect(() => {
+    const chart = echarts.init(chartRef.current)
+    chart.setOption({
+      title: { text: '近7日营收趋势' },
+      xAxis: { data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'] },
+      yAxis: {},
+      series: [{
+        type: 'line',
+        data: [1200, 1600, 900, 2100, 2400, 2800, 3200],
+        smooth: true
+      }]
+    })
+  }, [])
+
   return (
     <div>
-      <h2 style={{ marginBottom: 20 }}>数据看板</h2>
-      <div className="card-box">
-        <div className="card">
-          <h4>用户总数</h4>
-          <div className="num">12,345</div>
-        </div>
-        <div className="card">
-          <h4>商品总数</h4>
-          <div className="num">890</div>
-        </div>
-        <div className="card">
-          <h4>订单总数</h4>
-          <div className="num">5,678</div>
-        </div>
-        <div className="card">
-          <h4>今日营收</h4>
-          <div className="num">¥ 12,600</div>
-        </div>
-      </div>
+      <h2>数据看板</h2>
+      <div ref={chartRef} style={{ width: '100%', height: 400, background: '#fff', padding: 20, borderRadius: 10 }} />
     </div>
-  );
+  )
 }
